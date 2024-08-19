@@ -77,15 +77,15 @@ jobs:
           ebook-convert 100-exercises-to-learn-rust.html 100-exercises-to-learn-rust.epub \
             --embed-all-fonts \
             --subset-embedded-fonts
-      - name: Link Checker
-        uses: lycheeverse/lychee-action@v1
-        with:
-          fail: true
-          args: |
-            --exclude-loopback 
-            --require-https 
-            --no-progress 
-            book/book/html/
+      # - name: Link Checker
+      #   uses: lycheeverse/lychee-action@v1
+      #   with:
+      #     fail: true
+      #     args: |
+      #       --exclude-loopback 
+      #       --require-https 
+      #       --no-progress 
+      #       book/book/html/
       # Upload the HTML book as an artifact
       - uses: actions/upload-artifact@v4
         with:

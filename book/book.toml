@@ -41,8 +41,8 @@ sansfontfallback = ["Noto Color Emoji:mode=harf"]
 monofontfallback = [
   "Noto Color Emoji:mode=harf",
 ]
-linkcolor = "blue"
-urlcolor = "blue"
+linkcolor = "#6200ee"
+urlcolor = "#6200ee"
 urlstyle = "rm"
 documentclass = "book"
 fontsize = "11pt"
@@ -101,6 +101,6 @@ sansfontfallback = ["Noto Color Emoji:mode=harf"]
 monofontfallback = [
   "Noto Color Emoji:mode=harf",
 ]
-linkcolor = "blue"
-urlcolor = "blue"
+linkcolor = "#6200ee"
+urlcolor = "#6200ee"
 urlstyle = "rm"
