@@ -32,10 +32,10 @@ pdf-engine = "lualatex"
 metadata-file = "metadata.yml"
 
 [output.pandoc.profile.pdf.variables]
-# You can get these fonts here: https://fonts.google.com/selection?query=noto+color+
-mainfont = "Noto Serif"
-sansfont = "Noto Sans"
-monofont = "Noto Sans Mono"
+# You can get these fonts here: https://fonts.google.com/selection?query=open+sans+
+mainfont = "Open Sans"
+sansfont = "Open Sans"
+monofont = "Ubuntu Mono"
 mainfontfallback = ["Noto Color Emoji:mode=harf"]
 sansfontfallback = ["Noto Color Emoji:mode=harf"]
 monofontfallback = [
@@ -63,9 +63,9 @@ pdf-engine = "lualatex"
 
 [output.pandoc.profile.paperback.variables]
 # You can get these fonts here: https://fonts.google.com/selection?query=noto+color+
-mainfont = "Noto Serif"
-sansfont = "Noto Sans"
-monofont = "Noto Sans Mono"
+mainfont = "Open Sans"
+sansfont = "Open Sans"
+monofont = "Ubuntu Mono"
 mainfontfallback = ["Noto Color Emoji:mode=harf"]
 sansfontfallback = ["Noto Color Emoji:mode=harf"]
 monofontfallback = [
@@ -93,9 +93,9 @@ metadata-file = "metadata.yml"
 
 [output.pandoc.profile.html.variables]
 # You can get these fonts here: https://fonts.google.com/selection?query=noto+color+
-mainfont = "Noto Serif"
-sansfont = "Noto Sans"
-monofont = "Noto Sans Mono"
+mainfont = "Open Sans"
+sansfont = "Open Sans"
+monofont = "Ubuntu Mono"
 mainfontfallback = ["Noto Color Emoji:mode=harf"]
 sansfontfallback = ["Noto Color Emoji:mode=harf"]
 monofontfallback = [
