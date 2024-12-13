@@ -2,6 +2,8 @@
 //  Return the name of the person assigned to the ticket, if the ticket is in progress.
 //  Panic otherwise.
 
+use crate::Status::InProgress;
+
 #[derive(Debug, PartialEq)]
 struct Ticket {
     title: String,
@@ -38,7 +40,15 @@ impl Ticket {
         }
     }
     pub fn assigned_to(&self) -> &str {
-        todo!()
+        let status = &self.status;
+        match status {
+            Status::InProgress { assigned_to: person } => {
+                person
+            },
+            Status::ToDo | Status::Done => {
+                panic!("Only `In-Progress` tickets can be assigned to someone")
+            }
+        }
     }
 }
 

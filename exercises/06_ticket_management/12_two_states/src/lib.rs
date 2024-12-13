@@ -7,10 +7,12 @@
 // and returns an `Option<&Ticket>`.
 
 use ticket_fields::{TicketDescription, TicketTitle};
+use ticket_fields::test_helpers::{ticket_description, ticket_title};
 
 #[derive(Clone)]
 pub struct TicketStore {
     tickets: Vec<Ticket>,
+    next_free_id: u64,
 }
 
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -41,17 +43,30 @@ impl TicketStore {
     pub fn new() -> Self {
         Self {
             tickets: Vec::new(),
+            next_free_id: 0,
         }
     }
 
-    pub fn add_ticket(&mut self, ticket: Ticket) {
+    pub fn add_ticket(&mut self, ticket_draft: TicketDraft) -> TicketId{
+        let ticket = Ticket {
+            id: TicketId(self.next_free_id),
+            title: ticket_draft.title,
+            description: ticket_draft.description,
+            status: Status::ToDo,
+        };
         self.tickets.push(ticket);
+        self.next_free_id += 1;
+        TicketId(self.next_free_id - 1)
+    }
+
+    pub fn get(&self , t: TicketId) -> Option<&Ticket>{
+        self.tickets.iter().find(|x| {x.id == t})
     }
 }
 
 #[cfg(test)]
 mod tests {
-    use crate::{Status, TicketDraft, TicketStore};
+    use crate::{Status, TicketDraft, TicketId, TicketStore};
     use ticket_fields::test_helpers::{ticket_description, ticket_title};
 
     #[test]
@@ -72,7 +87,7 @@ mod tests {
             title: ticket_title(),
             description: ticket_description(),
         };
-        let id2 = store.add_ticket(draft2);
+        let id2 = store.add_ticket(draft2.clone());
         let ticket2 = store.get(id2).unwrap();
 
         assert_ne!(id1, id2);
